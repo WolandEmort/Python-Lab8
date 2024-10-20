@@ -39,19 +39,32 @@ def add_student():
         except ValueError:
             print("Помилка: Невірний формат введених даних.")
 
+# (Мороз Володимир КН-31.1)
+def remove_student():
+    pib = input("Введіть ПІБ студента, якого бажаєте видалити: ")
+    if pib in students:
+        del students[pib]
+        print(f"Студента '{pib}' успішно видалено.")
+    else:
+        print(f"Студента '{pib}' не знайдено у словнику.")
+
+
 # (Стешенко Станіслав КН-31.1)
 # Головне меню для взаємодії з користувачем
 def main():
     while True:
         print("\nМеню:")
         print("1. Додати нового студента")
-        print("2. Вийти")
+        print("2. Видалити студента")
+        print("3. Вийти")
 
         choice = input("Виберіть дію (1-2): ")
 
         if choice == "1":
             add_student()
         elif choice == "2":
+            remove_student()
+        elif choice == "3":
             print("Вихід з програми.")
             break
         else:
